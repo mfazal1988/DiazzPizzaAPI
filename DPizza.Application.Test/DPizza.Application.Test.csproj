@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.18.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DPizza.Application\DPizza.Application.csproj" />
+    <ProjectReference Include="..\DPizza.Domain\DPizza.Domain.csproj" />
+    <ProjectReference Include="..\DPizza.Infrastructure.AutoMapper\DPizza.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\DPizza.Infrastructure.FileManager\DPizza.Infrastructure.FileManager.csproj" />
+    <ProjectReference Include="..\DPizza.Infrastructure.Identity\DPizza.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\DPizza.Infrastructure.Persistence\DPizza.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\DPizza.Infrastructure.Resources\DPizza.Infrastructure.Resources.csproj" />
+    <ProjectReference Include="..\DPizza.WebApi\DPizza.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>
