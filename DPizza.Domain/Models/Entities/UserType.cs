@@ -18,14 +18,14 @@ namespace DPizza.Domain.Models.Entities
             Description = description;
             IsDeleted = isDeleted;
         }
-        public int Id { get; private set; }
-        public string Description { get; private set; }
-        public bool IsDeleted { get; private set; }
+        public int Id { get;  set; }
+        public string Description { get;  set; }
+        public bool IsDeleted { get;  set; }
       
        
-    public void Update(string description, bool isDeleted)
+    public void Update(int id, string description, bool isDeleted)
         {
-            Description = description;
+            Id = id;
             Description = description;
             IsDeleted = isDeleted;
         }

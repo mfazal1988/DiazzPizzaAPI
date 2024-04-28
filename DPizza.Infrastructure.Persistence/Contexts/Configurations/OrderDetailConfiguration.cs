@@ -21,15 +21,19 @@ namespace DPizza.Infrastructure.Persistence.Contexts.Configurations
 
             builder.Property(p => p.IsDeleted).HasDefaultValue(0);
 
-            builder.HasOne(d => d.Order)
-              .WithMany(p => p.OrderDetails)
-              .HasForeignKey(d => d.OrderID)
-              .OnDelete(DeleteBehavior.ClientSetNull)
-              .HasConstraintName("FK_OrderDetails_Order");
+            //builder.HasOne(d => d.Order)
+            //  .WithMany(p => p.OrderDetails)
+            //  .HasForeignKey(d => d.OrderID)
+            //  .OnDelete(DeleteBehavior.ClientSetNull)
+            //  .HasConstraintName("FK_OrderDetails_Order");
 
-            builder.HasOne(x => x.ProductDetail)
-                   .WithOne() 
-                   .HasForeignKey<OrderDetail>(x => x.ProductDetailID);
+            //builder.HasOne(x => x.ProductDetail)
+            //       .WithOne() 
+            //       .HasForeignKey<OrderDetail>(x => x.ProductDetailID);
+
+            builder.HasOne<Order>()
+                            .WithMany(p => p.OrderDetails)
+                            .HasForeignKey(x => x.OrderID);
 
         }
     }

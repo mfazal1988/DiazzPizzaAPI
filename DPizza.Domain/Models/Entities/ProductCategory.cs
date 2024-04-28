@@ -18,13 +18,13 @@ namespace DPizza.Domain.Models.Entities
             Description = description;
             //IsDeleted = isDeleted;
         }
-        public string Name { get; private set; }
-        public string Description { get; private set; }
+        public string Name { get;  set; }
+        public string Description { get;  set; }
        // public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 
-        public void Update( string name, string description, bool isDeleted)
+        public void Update(long id, string name, string description, bool isDeleted)
         {
-            //Id = Id;
+            Id = id;
             Name = name;
             Description = description;
             IsDeleted = isDeleted;

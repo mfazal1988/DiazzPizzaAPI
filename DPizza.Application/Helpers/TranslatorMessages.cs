@@ -22,5 +22,10 @@ namespace DPizza.Application.Helpers
                 => new(nameof(Product_notfound_with_id), [id.ToString()]);
         }
 
+        public static class OrderMessages
+        {
+            public static TranslatorMessageDto Order_notfound_with_id(string id)
+                => new(nameof(Order_notfound_with_id), [id]);
+        }
     }
 }

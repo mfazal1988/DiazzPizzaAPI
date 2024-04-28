@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DPizza.Application.Parameters;
+using DPizza.Application.Wrappers;
+using DPizza.Domain.Models.Dtos;
+using MediatR;
 
 namespace DPizza.Application.Features.Payment.Queries.GetPagedListPayment
 {
-    internal class GetPagedListPaymentQuery
+    public class GetPagedListPaymentQuery : PagenationRequestParameter, IRequest<PagedResponse<PaymentDto>>
     {
+        public string Name { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DPizza.Application.Wrappers;
+using DPizza.Domain.Models.Dtos;
 using DPizza.Domain.Models.Entities;
 using MediatR;
 using System;
@@ -11,17 +12,24 @@ namespace DPizza.Application.Features.Order.Commands.CreateOrder
 {
     public class CreateOrderCommand : IRequest<BaseResult<long>>
     {
-        public long UserId { get; private set; }
-        public string OrderNumber { get; private set; }
-        public int OrderTypeId { get; private set; }
-        public long OrderRecipientId { get; private set; }
-        public int OrderStatusId { get; private set; }
-        public string AdditionalInstruction { get; private set; }
-        public string AdditionalNotes { get; private set; }
-        public string LocationLink { get; private set; }
-        public bool IsOrderForSelf { get; private set; }
-        public int BranchId { get; private set; }
+        public CreateOrderCommand()
+        {
+            OrderRecipient = null;
+            OrderDetails = null;
+        }
+        public long UserId { get; set; }
+        public string OrderNumber { get; set; }
+        public int OrderTypeId { get; set; }
+        //public long OrderRecipientId { get; set; }
+        public int OrderStatusId { get; set; }
+        public string AdditionalInstruction { get; set; }
+        public string AdditionalNotes { get; set; }
+        public string DeliveryPerson { get; set; }
+        public string LocationLink { get; set; }
+        public bool IsOrderForSelf { get; set; }
+        public int BranchId { get; set; }
         public OrderRecipient OrderRecipient { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-    }
+        public List<OrderDetail> OrderDetails { get; set; } //= new List<OrderDetail>();
+
+    }      
 }

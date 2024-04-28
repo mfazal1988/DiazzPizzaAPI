@@ -19,21 +19,22 @@ namespace DPizza.Domain.Models.Entities
             //ProductCategory = productCategory;
             ProductDetails = productDetails;
         }
-        public long ProductCategoryId { get; private set; }        
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public string ImagePath { get; private set; }
+        public long ProductCategoryId { get;  set; }        
+        public string Name { get;  set; }
+        public string Description { get;  set; }
+        public string ImagePath { get;  set; }
        // public virtual ProductCategory ProductCategory { get; private set; }
         public virtual ICollection<ProductDetail> ProductDetails { get; set; } 
 
-        public void Update(long productCategoryId, string name, string description, string imagePath, List<ProductDetail> productDetails, bool isDeleted)
+        public void Update(long id, long productCategoryId, string name, string description, string imagePath, bool isDeleted)
         {
+            Id = id;
             ProductCategoryId = productCategoryId;
             Name = name;
             Description = description;
             ImagePath = imagePath;
             //ProductCategory = productCategory;
-            ProductDetails = productDetails;
+            //ProductDetails = productDetails;
             IsDeleted = isDeleted;
         }
     }

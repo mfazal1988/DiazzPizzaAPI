@@ -22,18 +22,17 @@ namespace DPizza.Domain.Models.Entities
             City = city;
             ContactNumber = contactNumber;
         }
-        public Guid UserId { get; private set; }
-
-        public int UserTypeId { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Address { get; private set; }
-        public string City { get; private set; }
-        public string ContactNumber { get; private set; }
+        public Guid UserId { get;  set; }
+        public int UserTypeId { get;  set; }
+        public string FirstName { get;  set; }
+        public string LastName { get;  set; }
+        public string Address { get;  set; }
+        public string City { get;  set; }
+        public string ContactNumber { get;  set; }
        
     public void Update(long id,Guid userId, int userTypeId, string firstName, string lastName, string address, string city, string contactNumber,bool isDeleted)
         {
-            this.Id = id;
+            Id = id;
             UserId = userId;
             UserTypeId = userTypeId;
             FirstName = firstName;

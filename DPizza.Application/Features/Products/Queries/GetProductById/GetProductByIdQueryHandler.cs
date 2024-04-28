@@ -24,11 +24,8 @@ namespace DPizza.Application.Features.Products.Queries.GetProductById
             }
 
             var result = new ProductDto(product);
-            if (result.ProductDetails.Count > 0)
-            { 
-              result.ProductDetails.FirstOrDefault().CrustType = result.ProductDetails.FirstOrDefault().CrustTypeId.ToString();
-              result.ProductDetails.FirstOrDefault().ProductVariant = result.ProductDetails.FirstOrDefault().ProductVarientId.ToString();
-            }          
+            result.ProductDetails.FirstOrDefault().CrustType = result.ProductDetails.FirstOrDefault().CrustTypeId.ToString();
+            result.ProductDetails.FirstOrDefault().ProductVariant = result.ProductDetails.FirstOrDefault().ProductVarientId.ToString();
 
             //var result = EnumTranslator.CrustAndVarientTypeString(new ProductDto(product));
 

@@ -9,6 +9,14 @@
 	  <EmbeddedResource Remove="Interfaces\NewFolder\**" />
 	  <None Remove="Interfaces\NewFolder\**" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Features\ProductDetail\Queries\GetProductDetailById\GetProductDetailByVarietyQuery" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Features\ProductDetail\Queries\GetProductDetailByVariety\GetProductDetailByVarietyQuery.cs" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="FluentValidation" Version="11.9.0" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />

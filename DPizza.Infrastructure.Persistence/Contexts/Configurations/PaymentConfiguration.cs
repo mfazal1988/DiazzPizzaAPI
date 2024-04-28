@@ -22,9 +22,9 @@ namespace DPizza.Infrastructure.Persistence.Contexts.Configurations
 
             builder.Property(p => p.IsDeleted).HasDefaultValue(0);
 
-            builder.HasOne(x => x.Order)
-           .WithOne()
-           .HasForeignKey<Payment>(x => x.OrderId);
+           // builder.HasOne(x => x.Order)
+           //.WithOne()
+           //.HasForeignKey<Payment>(x => x.OrderId);
         }
     }
 }

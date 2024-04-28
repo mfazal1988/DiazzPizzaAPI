@@ -20,7 +20,7 @@ namespace DPizza.Domain.Models.Dtos
             //ProductPriceId = productDetail.ProductPriceId;
             IsDeleted = productDetail.IsDeleted;
             //Product = productDetail.Product;
-            ProductPrice = new ProductPriceDto(productDetail.ProductPrice);
+            ProductPrice = new ProductPriceDto(productDetail.ProductPrice?? new Entities.ProductPrice());
         }
 
         public List<ProductDetailDto> MapList(ICollection<ProductDetail> productDetailList)
@@ -37,6 +37,11 @@ namespace DPizza.Domain.Models.Dtos
             }
             return ProductDetailDtoList;
         }
+        public ProductDetailDto Map(ProductDetail productDetail)
+        {
+            return new ProductDetailDto(productDetail);
+        }
+
         public long Id { get; set; }
         public long ProductId { get; set; }
         public Enums.EnumCrustType CrustTypeId { get; set; }

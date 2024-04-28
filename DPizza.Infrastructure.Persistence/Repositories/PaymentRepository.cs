@@ -24,7 +24,7 @@ namespace DPizza.Infrastructure.Persistence.Repositories
             _mapper = mapper;
         }
 
-        public async Task<Payment> GetProductByIdAsync(long id)
+        public async Task<Payment> GetPaymentByIdAsync(long id)
         {
             var query = await payment
                        .FirstOrDefaultAsync(a => a.Id == id);
@@ -32,13 +32,29 @@ namespace DPizza.Infrastructure.Persistence.Repositories
             return query;
         }
 
-        public async Task<PagenationResponseDto<PaymentDto>> GetPagedListAsync(int pageNumber, int pageSize, string name)
+        public List<Payment> GetPaymentByUserIdAsync(string id)
+        {
+            var query = payment
+                       .Where(a => a.UserId == Guid.Parse(id)).ToList();
+
+            return query;
+        }
+
+        public List<Payment> GetPaymentByOrderIdAsync(long id)
+        {
+            var query = payment
+                       .Where(a => a.OrderId == id).ToList();
+
+            return query;
+        }
+ 
+        public async Task<PagenationResponseDto<PaymentDto>> GetPagedListAsync(int pageNumber, int pageSize, string transactionId)
         {
             var query = payment.OrderBy(p => p.CreatedDate).AsQueryable();
 
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(transactionId))
             {
-                query = query.Where(p => p.TransactionId.Contains(name));
+                query = query.Where(p => p.TransactionId.Contains(transactionId));
             }
 
             return await Paged(

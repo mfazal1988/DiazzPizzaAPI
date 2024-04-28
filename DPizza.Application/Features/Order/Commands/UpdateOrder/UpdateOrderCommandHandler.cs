@@ -24,8 +24,8 @@ namespace DPizza.Application.Features.Order.Commands.UpdateOrder
                 return new BaseResult(new Error(ErrorCode.NotFound, translator.GetString(TranslatorMessages.ProductMessages.Product_notfound_with_id(request.Id)), nameof(request.Id)));
             }
 
-            order.Update(request.Id, request.UserId, request.OrderTypeId, request.OrderRecipientId, request.OrderStatusId, 
-                request.AdditionalInstruction, request.AdditionalNotes, request.LocationLink, request.IsOrderForSelf,
+            order.Update(request.Id, request.UserId, request.OrderTypeId, request.OrderStatusId, 
+                request.AdditionalInstruction, request.AdditionalNotes,request.DeliveryPerson ,request.LocationLink, request.IsOrderForSelf,
                 request.BranchId, request.IsDeleted, request.OrderRecipient, request.OrderDetails);
             await unitOfWork.SaveChangesAsync();
 

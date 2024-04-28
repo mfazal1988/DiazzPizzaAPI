@@ -57,7 +57,6 @@ namespace DPizza.Infrastructure.Persistence.Repositories
 
             if (!string.IsNullOrEmpty(name))
             {
-                //query = query.Where(p => p.Name.Contains(name));
                 query = products                      
                       .Where(a => a.Name == name);
             }

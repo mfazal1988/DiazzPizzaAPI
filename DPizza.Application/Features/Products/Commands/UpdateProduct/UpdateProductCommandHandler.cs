@@ -19,7 +19,7 @@ namespace DPizza.Application.Features.Products.Commands.UpdateProduct
                 return new BaseResult(new Error(ErrorCode.NotFound, translator.GetString(TranslatorMessages.ProductMessages.Product_notfound_with_id(request.Id)), nameof(request.Id)));
             }
 
-            product.Update(request.ProductCategoryId, request.Name, request.Description, request.ImagePath,request.ProductDetails, request.IsDeleted);
+            product.Update(request.Id ,request.ProductCategoryId, request.Name, request.Description, request.ImagePath, request.IsDeleted);
             await unitOfWork.SaveChangesAsync();
 
             return new BaseResult();

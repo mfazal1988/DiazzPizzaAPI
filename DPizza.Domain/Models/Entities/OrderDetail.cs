@@ -13,8 +13,7 @@ namespace DPizza.Domain.Models.Entities
         }
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public OrderDetail(long orderID, long productDetailID, int quantity, decimal price, decimal couponDiscount, 
-            decimal creditCardDiscount, decimal otherDiscount, decimal netTotal, Order order, ProductDetail productDetail
-)
+            decimal creditCardDiscount, decimal otherDiscount, decimal netTotal )
         {
             OrderID = orderID;
             ProductDetailID = productDetailID; 
@@ -24,24 +23,26 @@ namespace DPizza.Domain.Models.Entities
             CreditCardDiscount = creditCardDiscount;
             OtherDiscount = otherDiscount;
             NetTotal = netTotal;
-            Order = order;
-            ProductDetail = productDetail;
+            //Order = order;
+            //ProductDetail = productDetail;
         }
-        public long OrderID { get; private set; }
-        public long ProductDetailID { get; private set; }
-        public int Quantity { get; private set; }
-        public decimal Price { get; private set; }
-        public decimal CouponDiscount { get; private set; }
-        public decimal CreditCardDiscount { get; private set; }
-        public decimal OtherDiscount { get; private set; }
-        public decimal NetTotal { get; private set; }
+        public long OrderID { get;  set; }
+        public long ProductDetailID { get;  set; }
+        public int Quantity { get;  set; }
+        public decimal Price { get;  set; }
+        public decimal CouponDiscount { get;  set; }
+        public decimal CreditCardDiscount { get;  set; }
+        public decimal OtherDiscount { get;  set; }
+        public decimal NetTotal { get;  set; }
 
-        public virtual Order Order { get; set; }
-        public virtual ProductDetail ProductDetail { get; set; }
+        //public virtual Order Order { get; set; }
+        //public virtual ProductDetail ProductDetail { get; set; } = new ProductDetail();
+        //public Product Product { get; set; } = new Product();
 
-        public void Update(long orderID, long productDetailID, int quantity, decimal price, decimal couponDiscount,
+        public void Update(long id, long orderID, long productDetailID, int quantity, decimal price, decimal couponDiscount,
             decimal creditCardDiscount, decimal otherDiscount, decimal netTotal, bool isDeleted)
         {
+            Id = id;
             OrderID = orderID;
             ProductDetailID = productDetailID;
             Quantity = quantity;

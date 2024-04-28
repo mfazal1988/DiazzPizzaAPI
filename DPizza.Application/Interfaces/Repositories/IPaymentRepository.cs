@@ -12,6 +12,9 @@ namespace DPizza.Application.Interfaces.Repositories
     public interface IPaymentRepository : IGenericRepository<Payment>
     {
         Task<PagenationResponseDto<PaymentDto>> GetPagedListAsync(int pageNumber, int pageSize, string name);
-        Task<Payment> GetProductByIdAsync(long id);
+        Task<Payment> GetPaymentByIdAsync(long id);
+        List<Payment> GetPaymentByUserIdAsync(string id);
+        List<Payment> GetPaymentByOrderIdAsync(long id);
+
     }
 }

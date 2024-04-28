@@ -21,9 +21,26 @@ namespace DPizza.Domain.Models.Dtos
             OtherDiscount = orderDetail.OtherDiscount;
             NetTotal = orderDetail.NetTotal;
             IsDeleted = orderDetail.IsDeleted;
-            Order = orderDetail.Order;
-            ProductDetail = orderDetail.ProductDetail;
+
+            //var objProd = new ProductDetailDto();
+            //ProductDetails = objProd.Map(orderDetail.ProductDetail);
         }
+
+        public List<OrderDetailDto> MapList(ICollection<OrderDetail> ordertDetailList)
+        {
+            OrderDetailDto orderDetailDto = new OrderDetailDto();
+            List<OrderDetailDto> OrderDetailDtoList = new List<OrderDetailDto>();
+            if (ordertDetailList != null)
+            {
+                foreach (var orderDetail in ordertDetailList)
+                {
+                    orderDetailDto = new OrderDetailDto(orderDetail);
+                    OrderDetailDtoList.Add(orderDetailDto);
+                }
+            }
+            return OrderDetailDtoList;
+        }
+
 
         public long Id { get; set; }
         public long OrderID { get; set; }
@@ -35,8 +52,10 @@ namespace DPizza.Domain.Models.Dtos
         public decimal OtherDiscount { get; set; }
         public decimal NetTotal { get; set; }
         public bool IsDeleted { get; set; }
-        public Order Order { get; set; }
-        public ProductDetail ProductDetail { get; set; }
+
+        public ProductDto Product { get; set; } = new ProductDto();
+
+        //public ProductDetailDto ProductDetails { get; set; }
 
     }
 }

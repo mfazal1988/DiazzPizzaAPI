@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DPizza.Application.Interfaces;
+using FluentValidation;
 
 namespace DPizza.Application.Features.Payment.Commands.UpdatePayment
 {
-    internal class UpdatePaymentCommandValidator
+    public class UpdatePaymentCommandValidator : AbstractValidator<UpdatePaymentCommand>
     {
+        public UpdatePaymentCommandValidator(ITranslator translator)
+        {
+            RuleFor(p => p.OrderId)
+                            .NotNull()
+                            .NotEmpty()
+                            .WithName(p => translator["OrderId"]);
+
+            RuleFor(x => x.UserId)
+                 .NotNull()
+                .NotEmpty()
+                .WithName(translator["UserId"]);
+        }
     }
+
 }

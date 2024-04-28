@@ -12,6 +12,10 @@ namespace DPizza.Application.Interfaces.Repositories
     public interface IOrderRepository : IGenericRepository<Order>
     {
         Task<PagenationResponseDto<OrderDto>> GetPagedListAsync(int pageNumber, int pageSize, string name);
-        Task<Order> GetProductByIdAsync(long id);
+        Task<PagenationResponseDto<OrderDto>> GetOrderByUserIdAsync(int pageNumber, int pageSize, long id);
+        Task<PagenationResponseDto<OrderDto>> GetOrderByCreatedUserAsync(int pageNumber, int pageSize, string guid);
+
+        Task<Order> GetOrderByIdAsync(long id);
+    
     }
 }

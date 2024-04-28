@@ -23,15 +23,16 @@ namespace DPizza.Domain.Models.Entities
             ContactNumber = contactNumber;
         }
    
-        public long OrderId { get; private set; }
-        public string Name { get; private set; }
-        public string Address { get; private set; }
-        public string City { get; private set; }
-        public string Email { get; private set; }
-        public string ContactNumber { get; private set; }
+        public long OrderId { get;  set; }
+        public string Name { get;  set; }
+        public string Address { get;  set; }
+        public string City { get;  set; }
+        public string Email { get;  set; }
+        public string ContactNumber { get;  set; }
        
-    public void Update(long orderId, string name, string address, string city, string email, string contactNumber, bool isDeleted)
+    public void Update(long id, long orderId, string name, string address, string city, string email, string contactNumber, bool isDeleted)
         {
+            Id = id;
             OrderId = orderId;
             Name = name;
             Address = address;

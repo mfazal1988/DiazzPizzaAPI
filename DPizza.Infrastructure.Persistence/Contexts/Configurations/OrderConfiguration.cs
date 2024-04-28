@@ -14,12 +14,14 @@ namespace DPizza.Infrastructure.Persistence.Contexts.Configurations
             builder.Property(p => p.OrderNumber)
                .HasMaxLength(100);
             builder.Property(p => p.OrderTypeId);
-            builder.Property(p => p.OrderRecipientId);
+            //builder.Property(p => p.OrderRecipientId);
             builder.Property(p => p.OrderStatusId);
             builder.Property(p => p.AdditionalInstruction)
                 .HasMaxLength(500);
             builder.Property(p => p.AdditionalNotes)
                 .HasMaxLength(500);
+            builder.Property(p => p.DeliveryPerson)
+                .HasMaxLength(100);
             builder.Property(p => p.LocationLink)
                 .HasMaxLength(500);
             builder.Property(p => p.IsOrderForSelf);
@@ -27,10 +29,10 @@ namespace DPizza.Infrastructure.Persistence.Contexts.Configurations
 
             builder.Property(p => p.IsDeleted).HasDefaultValue(0);
 
-            builder
-                .HasOne(d => d.OrderRecipient)
-                .WithOne()
-                .HasForeignKey<Order>(da => da.OrderRecipientId);
+            //builder
+            //    .HasOne(d => d.OrderRecipient)
+            //    .WithOne()
+            //    .HasForeignKey<Order>(da => da.OrderRecipientId);
 
         }
     }

@@ -24,7 +24,7 @@ namespace DPizza.Application.Features.ProductCategory.Commands.UpdateProductCate
                 return new BaseResult(new Error(ErrorCode.NotFound, translator.GetString(TranslatorMessages.ProductMessages.Product_notfound_with_id(request.Id)), nameof(request.Id)));
             }
 
-            product.Update(request.Name, request.Description, request.IsDeleted);
+            product.Update(request.Id, request.Name, request.Description, request.IsDeleted);
             await unitOfWork.SaveChangesAsync();
 
             return new BaseResult();

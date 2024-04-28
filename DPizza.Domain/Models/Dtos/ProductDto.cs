@@ -22,7 +22,7 @@ namespace DPizza.Domain.Models.Dtos
             IsDeleted = product.IsDeleted;
 
             var objList = new ProductDetailDto();
-            ProductDetails = objList.MapList(product.ProductDetails);
+            ProductDetails = objList.MapList(product.ProductDetails ?? new List<ProductDetail>());
         }
         public long Id { get; set; }
         public long ProductCategoryId { get; set; }

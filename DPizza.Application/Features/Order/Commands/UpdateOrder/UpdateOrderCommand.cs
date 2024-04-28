@@ -11,6 +11,11 @@ namespace DPizza.Application.Features.Order.Commands.UpdateOrder
 {
     public class UpdateOrderCommand : IRequest<BaseResult>
     {
+        public UpdateOrderCommand()
+        {
+            OrderRecipient = null;
+            OrderDetails = null;
+        }
         public long Id { get; set; }
         public long UserId { get; set; }
         public int OrderTypeId { get; set; }
@@ -18,11 +23,31 @@ namespace DPizza.Application.Features.Order.Commands.UpdateOrder
         public int OrderStatusId { get; set; }
         public string AdditionalInstruction { get; set; }
         public string AdditionalNotes { get; set; }
+        public string DeliveryPerson { get; set; }
         public string LocationLink { get; set; }
         public bool IsOrderForSelf { get; set; }
         public int BranchId { get; set; }
         public bool IsDeleted { get; set; }
         public OrderRecipient OrderRecipient { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public List<OrderDetail> OrderDetails { get; set; } //= new List<OrderDetail>();
     }
+
+    public class UpdateOrderStatusCommand : IRequest<BaseResult>
+    {
+        public long Id { get; set; }
+        public int OrderStatusId { get; set; }
+    }
+
+    public class UpdateOrderTypeCommand : IRequest<BaseResult>
+    {
+        public long Id { get; set; }
+        public int OrderTypeId { get; set; }
+    }
+
+    public class UpdateOrderDeliveryPersonCommand : IRequest<BaseResult>
+    {
+        public long Id { get; set; }
+        public string DeliveryPerson { get; set; }
+    }
+
 }

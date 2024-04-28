@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DPizza.Application.Wrappers;
+using MediatR;
 
 namespace DPizza.Application.Features.Payment.Commands.DeletePayment
 {
-    internal class DeletePaymentCommand
+    public class DeletePaymentCommand : IRequest<BaseResult>
     {
+        public long Id { get; set; }
     }
 }
